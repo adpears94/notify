@@ -13,8 +13,8 @@ const pull = async (req, res) => {
 
 
     try {
-        const response = await axios.post()
-        if (req.body.token !== TOKEN) {
+        const response = await axios.post('https://notifyme-fezl.onrender.com/api/pull')
+        if (req.body !== TOKEN) {
             res.status(401).send({message: 'Unauthorized'})
         }
         console.log(req.body)
