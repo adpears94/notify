@@ -1,0 +1,13 @@
+{
+    "gmail":{ 
+        "username":"pears.avery",
+        "password":"zsidiqtlzlfuehb"
+    },
+    "matterMost": {
+        "mvptest" :{
+        "url":"chat.ilab.zone",
+        "port":"443",
+        "hook":"zsidiqtlzlfuehb"
+        }
+    }
+}

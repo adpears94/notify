@@ -1,11 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const FormData = require("form-data");
+const fs = require('fs');
 const axios = require("axios");
 const bodyParser = require("body-parser");
 const port = 3006;
 const sendRoute = require("./routes/sendRoutes");
 const pullRoute = require("./routes/pullRoutes");
+const { test } = require("./controllers/send");
 
 const app = express();
 app.use(cors());
@@ -34,6 +36,21 @@ const appriseUrl = "http://localhost:7070/apprise/notify"; // replace with your 
 // --------- initial API Routes ------------------------------
 app.get("/api", (req, res) => {
   res.send(htmlResponse);
+  fs.readFile("hooks.json", "utf8", (err, jsonString) => {
+    if (err) {
+      console.log("File read failed:", err);
+      return;
+    }
+    let b
+    const a = JSON.parse(jsonString);
+    const tags = Object.keys(a);
+    tags.forEach((tag) => {
+      if (tag === "matterMost"){
+        b = a[tag]
+      }
+    })
+    console.log("File data:", b);
+  })
 });
 
 
