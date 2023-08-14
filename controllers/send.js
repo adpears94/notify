@@ -3,7 +3,7 @@ const appriseUrl = "https://sandbox-9494-dev.ilab.zone/apprise/notify";
 const axios = require("axios");
 const FormData = require("form-data");
 
-axios.defaults.headers.post["Content-Type"] = "application/json";
+
 
 const send = async (req, res) => {
   const { url, message } = req.body;
