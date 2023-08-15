@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { pull } = require("../controllers/pull");
 
-router.route("/pull").get(pull);
+router.route("/pull").post(pull);
 
 
 module.exports = router;
