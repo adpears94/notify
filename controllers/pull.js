@@ -5,7 +5,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 const customAxios = axios.create({
   headers: {
     post: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
   },
 });
