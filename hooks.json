@@ -1,10 +1,39 @@
 {
     "gmail":{ 
-        "username":"pears.avery",
-        "password":"zsidiqtlzlfuehb"
+        "pears.avery" :{
+            "username":"pears.avery",
+            "password":"zsidiqtlzlfuehbk"
+        },
+        "john" :{
+            "username":"pears.ilab",
+            "password":"zsidiqtlzlfuehb"
+        },
+        "ricky" :{
+            "username":"pears.ilabtest",
+            "password":"zsidiqtlzlfuehb"
+        },
+        "james" :{
+            "username":"pears.ilabdev",
+            "password":"zsidiqtlzlfuehb"
+        }
     },
-    "matterMost": {
+    "mattermost": {
         "mvptest" :{
+        "url":"chat.ilab.zone",
+        "port":"443",
+        "hook":"tp74gda8d38g8c59tf48b3196e"
+        },
+        "ilab" :{
+        "url":"chat.ilab.zone",
+        "port":"443",
+        "hook":"zsidiqtlzlfuehb"
+        },
+        "ilabtest" :{
+        "url":"chat.ilab.zone",
+        "port":"443",
+        "hook":"zsidiqtlzlfuehb"
+        },
+        "ilabdev" :{
         "url":"chat.ilab.zone",
         "port":"443",
         "hook":"zsidiqtlzlfuehb"
