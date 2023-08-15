@@ -42,7 +42,7 @@ const getPlatformUrl = (platform, data, recipient) => {
 };
 
 const send = async (req, res) => {
-  console.log(req.body)
+  
   const { platform, message, yourEmail, recipient } = req.body;
   //   let urls
   //   platform === 'mattermost' ?

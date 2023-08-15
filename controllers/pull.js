@@ -24,7 +24,7 @@ const pull = async (req, res) => {
   // First, validate the token
   if (token !== TOKEN) {
     console.log("unauthorized attempt");
-    return res.status(401).send({ message: "Unauthorized" });
+    return res.status(401).send({ message: "Unauthorized, but you have hit the right end point eric/avery" });
   }
 
   try {
