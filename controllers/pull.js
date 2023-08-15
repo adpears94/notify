@@ -41,6 +41,7 @@ const pull = async (req, res) => {
 
   try {
     res.status(200).send({ message: "Messages Received!", data: req.body });
+    console.log(req.body);
   } catch (e) {
     console.error(e);
     res.status(500).send({ message: "Error This is a post request" });
