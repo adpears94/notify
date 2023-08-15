@@ -30,10 +30,10 @@ const pull = async (req, res) => {
 
   try {
    
-    const axiosResponse = await customAxios.post();
+    // const axiosResponse = await customAxios.post();
 
-    console.log(axiosResponse);
-    res.status(200).send({ message: "Messages Received!" });
+    // console.log(axiosResponse);
+    res.status(200).send({ message: "Messages Received!", data: req.body });
   } catch (e) {
     console.error(e);
     res.status(500).send({ message: "Error This is a post request" });
