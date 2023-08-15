@@ -1,5 +1,5 @@
-const appriseUrl = "http://localhost:7070/apprise/notify";
-// const appriseUrl = "https://sandbox-9494-dev.ilab.zone/apprise/notify";
+// const appriseUrl = "http://localhost:7070/apprise/notify";
+const appriseUrl = "https://sandbox-9494-dev.ilab.zone/apprise/notify";
 const axios = require("axios");
 const FormData = require("form-data");
 const fs = require("fs");
