@@ -35,6 +35,7 @@ const appriseUrl = "http://localhost:7070/apprise/notify"; // replace with your 
 
 // --------- initial API Routes ------------------------------
 app.get("/api", (req, res) => {
+  console.log('hit the get route')
   res.send(htmlResponse);
 });
 
