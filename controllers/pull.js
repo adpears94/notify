@@ -3,9 +3,13 @@ const { json } = require("body-parser");
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 const customAxios = axios.create({
-  headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-  },
+    headers: {
+        post: {
+          "User-Agent": "Go 1.1 package http",
+          "Accept": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }
 });
 
 const pull = async (req, res) => {
