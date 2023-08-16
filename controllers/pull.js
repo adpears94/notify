@@ -1,18 +1,8 @@
-const axios = require("axios");
-const { json } = require("body-parser");
-
-const customAxios = axios.create({
-  headers: {
-    post: {
-      "User-Agent": "Go 1.1 package http",
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  },
-});
 
 const pull = async (req, res) => {
-  const TOKEN = "5jixnf6a5bfc7fq7hb87wp5cjh";
+  const TOKEN = process.env.MM_TOKEN;
+  const io = req.app.get("io");
+
 
   const {
     channel_id,
@@ -27,7 +17,7 @@ const pull = async (req, res) => {
     user_id,
     user_name,
   } = req.body;
-  console.log("it has hit the endpoint");
+
 
   if (token !== TOKEN) {
     console.log("unauthorized attempt");
@@ -40,12 +30,14 @@ const pull = async (req, res) => {
   }
 
   try {
-    res.status(200).send({ message: "Messages Received!", data: req.body });
-    console.log(req.body);
+    res.status(200).send({ message: "Messages Received!", data: req.body })
+    io.emit("message", req.body);
+    
   } catch (e) {
     console.error(e);
     res.status(500).send({ message: "Error This is a post request" });
   }
 };
+
 
 module.exports = { pull };

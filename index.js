@@ -1,18 +1,26 @@
 const express = require("express");
 const cors = require("cors");
-const FormData = require("form-data");
-const fs = require('fs');
-const axios = require("axios");
+require("dotenv").config();
+const socket = require("socket.io");
+const http = require("http");
+
 const bodyParser = require("body-parser");
 const port = 3006;
 const sendRoute = require("./routes/sendRoutes");
 const pullRoute = require("./routes/pullRoutes");
-const { test } = require("./controllers/send");
 
 const app = express();
+const server = http.createServer(app);
+const io = socket(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  }
+});
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set("io", io);
 
 const htmlResponse = `
 <html>
@@ -28,25 +36,17 @@ const htmlResponse = `
     </body>
 </html>`;
 
-
-const appriseUrl = "http://localhost:7070/apprise/notify"; // replace with your apprise server url if not localhost
-
-
-
 // --------- initial API Routes ------------------------------
 app.get("/api", (req, res) => {
-  console.log('hit the get route')
+  console.log("hit the get route");
   res.send(htmlResponse);
 });
 
-
-
 // --------- apprise API Routes ------------------------------
 
-app.use('/api', sendRoute)
-app.use('/api', pullRoute)
+app.use("/api", sendRoute);
+app.use("/api", pullRoute);
 
-
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Proxy server listening on ${port}`);
 });

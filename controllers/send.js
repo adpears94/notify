@@ -42,14 +42,7 @@ const getPlatformUrl = (platform, data, recipient) => {
 };
 
 const send = async (req, res) => {
-  
   const { platform, message, yourEmail, recipient } = req.body;
-  //   let urls
-  //   platform === 'mattermost' ?
-  //  urls =  `mmosts://${indivData.url}:${indivData.port}/${indivData.hook}`:
-  //   platform === 'gmail' ? urls = `mailto://${indivData.username}:${indivData.password}@gmail.com`: null
-
-  
 
   try {
     const indivData = await readfile(platform, yourEmail);
